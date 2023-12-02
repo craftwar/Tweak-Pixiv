@@ -1,0 +1,1 @@
+"C:\Program Files\7-Zip\7z.exe" a -mx=9 -mtc=off -x!.git* -x!*.md -x!screenshot -x!LICENSE -x!*.cmd -x!*.zip Tweak-Pixiv.zip
