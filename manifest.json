@@ -3,7 +3,7 @@
   "name": "Tweak Pixiv",
   "version": "23.12.3.1",
   "manifest_version": 3,
-  "description": "skip confirmation of url jump, auto-click show all button",
+  "description": "Get better pixiv experience",
   "homepage_url": "https://github.com/craftwar/Tweak-Pixiv",
   "host_permissions": [
     "*://*.pixiv.net/*"
