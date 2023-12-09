@@ -18,7 +18,8 @@
 		// press "R" or "ESC" to open/close manga show all
 		var showAll = true;
 		window.addEventListener("keydown", (event) => {
-			if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA")
+			if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA"
+				|| document.activeElement.tagName == "SELECT")
 				return
 			if (event.code == "KeyR" || event.code == "Escape") {
 				showAll = !showAll;
