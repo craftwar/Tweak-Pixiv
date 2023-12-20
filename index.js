@@ -14,7 +14,7 @@
 				return true;
 			}
 		}
-	} else {
+	} else if (window.location.href.includes("/artworks/")) {
 		// press "R" or "ESC" to open/close manga show all
 		var showAll = true;
 		window.addEventListener("keydown", (event) => {
