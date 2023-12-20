@@ -66,5 +66,23 @@
 				}
 			}
 		);
+	} else if (/.+?\/artworks($|\?)/.test(window.location.href)) {
+		// search result navigation
+		window.addEventListener("keydown", (event) => {
+			let pagination;
+			if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA"
+				|| document.activeElement.tagName == "SELECT")
+				return
+			switch (event.key) {
+				case "ArrowRight":
+					pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:last-child");
+					break;
+				case "ArrowLeft":
+					pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:first-child");
+					break;
+			}
+			if (pagination)
+				pagination.click();
+		});
 	}
 })();
