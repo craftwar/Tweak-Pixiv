@@ -66,7 +66,7 @@
 				}
 			}
 		);
-	} else if (/.+?\/artworks($|\?)/.test(window.location.href)) {
+	} else if (/.+?\/(?:artworks($|\?))|(?:bookmark_new_illust\.php$)/.test(window.location.href)) {
 		// search result navigation
 		window.addEventListener("keydown", (event) => {
 			let pagination;
