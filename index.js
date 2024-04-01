@@ -18,8 +18,7 @@
 		// press "R" or "ESC" to open/close manga show all
 		var showAll = true;
 		window.addEventListener("keydown", (event) => {
-			if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA"
-				|| document.activeElement.tagName == "SELECT")
+			if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName))
 				return
 			if (event.code == "KeyR" || event.code == "Escape") {
 				showAll = !showAll;
@@ -66,23 +65,23 @@
 				}
 			}
 		);
-	} else if (/.+?\/(?:artworks($|\?))|(?:bookmark_new_illust\.php$)/.test(window.location.href)) {
-		// search result navigation
+	} else { // install keydown to all page or ajax page loading may not work
 		window.addEventListener("keydown", (event) => {
-			let pagination;
-			if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA"
-				|| document.activeElement.tagName == "SELECT")
+			if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName))
 				return
-			switch (event.key) {
-				case "ArrowRight":
-					pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:last-child");
-					break;
-				case "ArrowLeft":
-					pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:first-child");
-					break;
+			if ((/.+?\/(?:(?:(?:artworks)|(?:illustrations)|(?:manga)|(?:bookmark_new_illust\.php))(?:$|\?))/.test(window.location.href))) {
+				let pagination;
+				switch (event.key) {
+					case "ArrowRight":
+						pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:last-child");
+						break;
+					case "ArrowLeft":
+						pagination = document.body.querySelector("nav.sc-xhhh7v-0 > a:first-child");
+						break;
+				}
+				if (pagination)
+					pagination.click();
 			}
-			if (pagination)
-				pagination.click();
 		});
 	}
 })();
