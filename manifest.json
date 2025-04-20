@@ -1,12 +1,15 @@
 {
   "author": "craftwar",
   "name": "Tweak Pixiv",
-  "version": "24.4.1",
+  "version": "25.4.21",
   "manifest_version": 3,
   "description": "Get better pixiv experience",
   "homepage_url": "https://github.com/craftwar/Tweak-Pixiv",
   "host_permissions": [
     "*://*.pixiv.net/*"
+  ],
+  "permissions": [
+    "storage"
   ],
   "browser_specific_settings": {
     "gecko": {
@@ -29,5 +32,8 @@
     "scripts": [
       "background.js"
     ]
+  },
+  "options_ui": {
+    "page": "options.html"
   }
 }

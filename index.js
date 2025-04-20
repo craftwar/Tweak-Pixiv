@@ -1,5 +1,14 @@
 'use strict';
-const buttonText = ['すべて見る', '作品を読む'];
+var buttonText = ['すべて見る', '作品を読む'];
+
+browser.storage.sync.get('buttonText', (values) => {
+	for (var i = 0; i < values.buttonText.length; ++i) {
+		if (values.buttonText[i].length) {
+			buttonText[i] = values.buttonText[i];
+		}
+	}
+});
+
 (() => {
 	if (window.location.href.startsWith("https://www.pixiv.net/jump.php")) {
 		const observer = new MutationObserver((record, observer) => {
