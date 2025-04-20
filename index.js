@@ -1,4 +1,5 @@
 'use strict';
+const buttonText = ['すべて見る', '作品を読む'];
 (() => {
 	if (window.location.href.startsWith("https://www.pixiv.net/jump.php")) {
 		const observer = new MutationObserver((record, observer) => {
@@ -34,10 +35,15 @@
 		});
 
 		function clickShowAll() {
-			const showAllButton = document.body.querySelector("button.sc-emr523-0");
-			if (showAllButton) {
-				showAllButton.click();
-				return true;
+			const showAllButton = document.body.querySelectorAll("button[type='button']:has(div)");
+			for (const button of showAllButton) {
+				for (const text of buttonText) {
+					if (button.innerText == text) {
+						button.click();
+						return true;
+					}
+				}
+
 			}
 		}
 
